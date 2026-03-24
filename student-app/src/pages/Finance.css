@@ -1,0 +1,197 @@
+.finance-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0.5rem;
+}
+
+.color-gradient-finance {
+  background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  color: white;
+  border: none;
+  padding: 2rem;
+  border-radius: 28px;
+}
+
+.finance-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.finance-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+}
+
+/* 💳 Balance Hero */
+.balance-hero {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  padding: 2.5rem !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.hero-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.main-total {
+  font-size: 3.5rem;
+  font-weight: 950;
+  letter-spacing: -2px;
+  margin-bottom: 0.5rem;
+}
+
+.sub-label {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  font-weight: 600;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+/* 📊 Settlement Nexus */
+.settlement-nexus h3 { margin-bottom: 1.5rem; }
+
+.analyser-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.a-stat {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.a-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.a-icon.green { background: #f0fdf4; color: #10b981; }
+.a-icon.orange { background: #fff7ed; color: #ea580c; }
+
+.a-info p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.a-info h4 {
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+.aid-banner {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #fffbeb;
+  border-radius: 12px;
+  border: 1px dashed #f59e0b;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+/* 📑 Billing Grid */
+.ledger-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.billing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.b-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.b-id {
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: var(--text-muted);
+}
+
+.b-val {
+  font-size: 1.75rem;
+  font-weight: 900;
+  margin: 1rem 0;
+}
+
+.b-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* 📉 Transaction Repository */
+.repo-table-wrap { padding: 0 !important; }
+
+.repo-table { width: 100%; border-collapse: collapse; }
+
+.repo-table th {
+  text-align: left;
+  padding: 1.25rem;
+  background: var(--bg-main);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.repo-table td {
+  padding: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.h-id h4 { font-size: 0.95rem; margin-bottom: 2px; }
+.h-id p { font-size: 0.75rem; color: var(--text-muted); margin: 0; }
+
+.ref-code { font-family: monospace; font-weight: 700; background: var(--bg-main); padding: 4px 8px; border-radius: 4px; }
+
+.h-val { font-weight: 900; font-size: 1rem; }
+.h-val.success { color: #10b981; }
+
+@media (max-width: 1024px) {
+  .finance-grid { grid-template-columns: 1fr; }
+}

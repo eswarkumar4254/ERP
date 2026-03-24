@@ -1,0 +1,22 @@
+# Common ignores
+node_modules/
+dist/
+build/
+.env
+.DS_Store
+*.log
+
+# Backend
+backend/env/
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/*.db
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Student App
+student-app/node_modules/
+student-app/dist/

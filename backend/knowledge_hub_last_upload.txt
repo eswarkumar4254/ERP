@@ -1,0 +1,57 @@
+Program: Bachelor of Technology (BTECH)
+Department: Computer Science Engineering (CSE)
+Sem 1: Mathematics-I, Physics, Programming in C, Engineering Drawing
+Sem 2: Mathematics-II, Chemistry, Data Structures, Basic Electronics
+Sem 3: Discrete Mathematics, OOPs (Java), Digital Logic Design
+Sem 4: DBMS, Operating Systems, Computer Organization
+Sem 5: Computer Networks, Software Engineering, Theory of Computation
+Sem 6: Machine Learning, Compiler Design, Cloud Computing
+Sem 7: Big Data Analytics, Cyber Security, Project Phase I
+Sem 8: Project Phase II, Internship, Elective
+Department: Information Technology (IT)
+Sem 1: Mathematics-I, Physics, Programming in C, Engineering Drawing
+Sem 2: Mathematics-II, Chemistry, Data Structures, Basic Electronics
+Sem 3: Discrete Mathematics, OOPs (Java), Digital Logic Design
+Sem 4: DBMS, Operating Systems, Computer Organization
+Sem 5: Computer Networks, Software Engineering, Theory of Computation
+Sem 6: Machine Learning, Compiler Design, Cloud Computing
+Sem 7: Big Data Analytics, Cyber Security, Project Phase I
+Sem 8: Project Phase II, Internship, Elective
+Program: Bachelor of Business Administration
+(BBA)
+Department: Finance Management (FIN)
+Sem 1: Principles of Management, Business Communication, Financial Accounting
+Sem 2: Business Economics, Marketing Management, Organizational Behavior
+Sem 3: Human Resource Management, Cost Accounting, Business Law
+Sem 4: Financial Management, Operations Management, Research Methods
+Sem 5: Strategic Management, Business Analytics, Entrepreneurship
+Sem 6: Project Work, Internship, Elective
+Department: Marketing Management (MKT)
+Sem 1: Principles of Management, Business Communication, Financial Accounting
+Sem 2: Business Economics, Marketing Management, Organizational Behavior
+Sem 3: Human Resource Management, Cost Accounting, Business Law
+Sem 4: Financial Management, Operations Management, Research Methods
+Sem 5: Strategic Management, Business Analytics, Entrepreneurship
+Sem 6: Project Work, Internship, Elective
+Program: Master of Technology (MTECH)
+
+Department: Computer Science Engineering
+Sem 1: Advanced Data Structures, Mathematical Foundations, Advanced Algorithms
+Sem 2: Machine Learning, Distributed Systems, Advanced DBMS
+Sem 3: Deep Learning, Cloud Architecture, Research Methodology
+Sem 4: Thesis Work, Publication, Seminar
+Department: Artificial Intelligence
+Sem 1: Advanced Data Structures, Mathematical Foundations, Advanced Algorithms
+Sem 2: Machine Learning, Distributed Systems, Advanced DBMS
+Sem 3: Deep Learning, Cloud Architecture, Research Methodology
+Sem 4: Thesis Work, Publication, Seminar
+Program: Doctor of Philosophy (PhD)
+Department: Computer Science
+Phase 1: Research Methodology, Advanced Coursework
+Phase 2: Literature Review, Research Proposal
+Phase 3: Thesis Writing, Publications, Viva Voce
+Department: Management
+Phase 1: Research Methodology, Advanced Coursework
+Phase 2: Literature Review, Research Proposal
+Phase 3: Thesis Writing, Publications, Viva Voce
+

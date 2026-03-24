@@ -1,0 +1,201 @@
+.academics-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.academics-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+/* 📊 GPA Analyser */
+.gpa-analyser {
+  background: linear-gradient(to bottom right, #ffffff, #f1f5f9);
+}
+
+.analyser-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.analyser-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.gpa-metric {
+  margin-bottom: 2rem;
+}
+
+.big-val {
+  font-size: 3.5rem;
+  font-weight: 950;
+  line-height: 1;
+  color: var(--primary);
+  letter-spacing: -2px;
+}
+
+.gpa-benchmarks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--border-subtle);
+}
+
+.bench-item span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.bench-item p {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* 📅 Timeline Nexus */
+.nexus-track {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 3rem;
+  padding: 0 1rem;
+}
+
+.nexus-track::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--border-subtle);
+  z-index: 1;
+}
+
+.track-point {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  flex: 1;
+}
+
+.p-dot {
+  width: 32px;
+  height: 32px;
+  background: white;
+  border: 2px solid var(--border-subtle);
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.track-point.done .p-dot {
+  background: var(--success);
+  border-color: var(--success);
+  color: white;
+}
+
+.track-point.current .p-dot {
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-glow);
+}
+
+.p-info .p-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.p-info .p-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* 📚 Roster Table */
+.table-view-wrap {
+  overflow-x: auto;
+  padding: 0 !important;
+}
+
+.roster-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.roster-table th {
+  text-align: left;
+  padding: 1.25rem;
+  background: var(--bg-main);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.roster-table td {
+  padding: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.c-id {
+  display: flex;
+  flex-direction: column;
+}
+
+.c-code {
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+.c-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.roster-table tr:hover td {
+  background: var(--bg-main);
+}
+
+.btn-ghost.sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+}
+
+.search-mini {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-main);
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+}
+
+.search-mini input {
+  background: transparent;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  outline: none;
+}
+
+@media (max-width: 1024px) {
+  .academics-grid {
+    grid-template-columns: 1fr;
+  }
+}
