@@ -195,6 +195,55 @@
   background-color: rgba(26, 37, 47, 0.04);
 }
 
+/* Institutions Section */
+.institutions-section {
+  padding: 5rem 5rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.uni-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.uni-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.uni-pill:hover {
+  background: #ffffff;
+  border-color: #1a252f;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.uni-pill .chevron {
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: all 0.3s ease;
+  color: #1a252f;
+}
+
+.uni-pill:hover .chevron {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* Statistics Bar */
 .stats-bar {
   display: grid;

@@ -17,7 +17,7 @@ const Marketplace = () => {
     <div className="page-content">
       <div className="page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
-          <h1 className="text-gradient">NexGen Integration Marketplace</h1>
+          <h1 className="text-gradient">Neuraltrix Integration Marketplace</h1>
           <p>Extend your institutional capabilities with premium plugins and third-party integrations.</p>
         </div>
         <button className="btn-premium">Manage Ecosystem</button>

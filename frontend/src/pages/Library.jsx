@@ -230,7 +230,7 @@ const Library = () => {
                        <Layers size={20} color="var(--primary-color)" />
                     </div>
                   </div>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: '1.5rem 0', lineHeight: '1.6' }}>Institutional archival access enabled. Authenticated via NexGen Vault.</p>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: '1.5rem 0', lineHeight: '1.6' }}>Institutional archival access enabled. Authenticated via Neuraltrix Vault.</p>
                   <a href={res.url} target="_blank" rel="noreferrer" className="btn-ghost" style={{ width: '100%', justifyContent: 'center', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '12px' }}>
                     Access Archive <ExternalLink size={14} style={{ marginLeft: '10px' }} />
                   </a>

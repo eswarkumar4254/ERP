@@ -34,3 +34,36 @@ def list_documents(
     current_user = Depends(deps.get_current_user)
 ):
     return db.query(DocumentVault).filter(DocumentVault.tenant_id == current_user.tenant_id).all()
+
+@router.get("/public")
+def list_public_resources():
+    """
+    Returns public academic resources for students.
+    In a real app, this would filter by visibility in a 'is_public' column.
+    """
+    return [
+        {
+            "id": 1,
+            "title": "Quantum Mechanics Handbook v2",
+            "file_type": "PDF",
+            "tags": ["Physics", "Core-Science", "2024"],
+            "uploader": "Dr. David Richards",
+            "created_at": "2024-10-15T10:00:00"
+        },
+        {
+            "id": 2,
+            "title": "Data Structures & Algorithms Cheat Sheet",
+            "file_type": "DOCX",
+            "tags": ["Computer Science", "CSE-402"],
+            "uploader": "Admin Cell",
+            "created_at": "2024-10-18T14:30:00"
+        },
+        {
+            "id": 3,
+            "title": "Organic Chemistry Lab Guidelines",
+            "file_type": "PDF",
+            "tags": ["BTECH", "Sem-1", "Lab"],
+            "uploader": "Faculty Hub",
+            "created_at": "2024-10-20T09:15:00"
+        }
+    ]

@@ -54,7 +54,7 @@ const ApplyNow = () => {
         </div>
         <h1 style={{ margin: '0 0 1rem' }}>Application Received!</h1>
         <p style={{ color: 'var(--text-secondary)', maxWidth: '450px', marginBottom: '2rem' }}>
-          Thank you for applying to NextGen University. Your registration #NXG-{Math.floor(Math.random()*9000)+1000} has been created. We will contact you shortly for the entrance interview.
+          Thank you for applying to Neuraltrix AI University. Your registration #NTX-{Math.floor(Math.random()*9000)+1000} has been created. We will contact you shortly for the entrance interview.
         </p>
         <button className="btn" onClick={() => setSubmitted(false)}>
           Back to Website

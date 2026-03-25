@@ -143,7 +143,7 @@ const InstitutionProfile = () => {
                                   <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'var(--bg-color)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                     <Mail size={18} />
                                   </div>
-                                  {tenant.contact_email || "admin@nextgen.edu"}
+                                  {tenant.contact_email || "admin@neuraltrix.edu"}
                               </div>
                           </div>
                       </div>

@@ -1,0 +1,113 @@
+.attendance-stage {
+    padding: 2rem 0;
+}
+
+.stats-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    padding: 1.5rem;
+}
+
+.stat-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.stat-card h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.status-indicator {
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.status-indicator.safe { background: rgba(34, 197, 94, 0.1); color: #22c55e; }
+.status-indicator.risk { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+
+.heatmap-nexus {
+    margin-bottom: 2rem;
+    padding: 2rem;
+}
+
+.nexus-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.legend {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.l-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.dot { width: 12px; height: 12px; border-radius: 4px; }
+.dot.p { background: #22c55e; }
+.dot.a { background: #ef4444; }
+.dot.n { background: rgba(0, 0, 0, 0.05); }
+
+.heatmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 0.75rem;
+}
+
+.day-box {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: help;
+}
+
+.day-box.present { background: rgba(34, 197, 94, 0.1); color: #166534; border: 1px solid rgba(34, 197, 94, 0.2); }
+.day-box.absent { background: rgba(239, 68, 68, 0.1); color: #991b1b; border: 1px solid rgba(239, 68, 68, 0.2); }
+
+.course-breakdown {
+    padding: 2rem;
+}
+
+.course-breakdown h3 {
+    margin-bottom: 1.5rem;
+}
+
+.break-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.break-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.b-info { flex: 1; }
+.b-info h4 { font-size: 1rem; margin-bottom: 0.75rem; }
+.b-val { font-weight: 700; width: 40px; text-align: right; }
+.arrow { color: var(--text-muted); opacity: 0.3; }

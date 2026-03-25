@@ -40,7 +40,7 @@ const Login = () => {
             <div className="showcase-content">
                <div className="showcase-logo">N</div>
                <h2>Elevating Academic <br/>Digital Experiences.</h2>
-               <p>Welcome to the NexGen Student Portal. Your unified gateway to academic excellence and institutional management.</p>
+               <p>Welcome to the Neuraltrix Student Portal. Your unified gateway to academic excellence and institutional management.</p>
                <div className="showcase-features">
                   <div className="s-feat"><CheckCircle size={16} /> Real-time Course Analytics</div>
                   <div className="s-feat"><CheckCircle size={16} /> Unified Payment Gateway</div>

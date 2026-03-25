@@ -23,6 +23,7 @@ from app.models.institutional import InstitutionalTask, QualityReport
 from app.models.compliance import NoDueRequest, NoDueClearance
 from app.models.admissions import AdmissionApplication
 from app.models.rbac import Role, Permission, Module
+from app.models.extra_features import StudyPlan, Grievance, CourseModule, StudentModuleCompletion, GlobalAnnouncement, BiometricLog
 
 # This allows easy access to all models and metadata for migrations
 metadata = Base.metadata

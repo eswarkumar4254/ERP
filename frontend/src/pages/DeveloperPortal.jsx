@@ -8,7 +8,7 @@ import {
 
 const DeveloperPortal = () => {
   const [copied, setCopied] = useState(false);
-  const apiKey = 'erp_live_ak_7729x_bk992_q001_nextgen';
+  const apiKey = 'erp_live_ak_7729x_bk992_q001_neuraltrix';
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(apiKey);

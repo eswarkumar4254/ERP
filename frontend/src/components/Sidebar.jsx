@@ -171,11 +171,11 @@ const Sidebar = () => {
     });
     return { ...group, items: filteredItems };
   }).filter(group => {
-    // If super_admin, ONLY show the SaaS group
+    // If super_admin, show all available groups
     if (role === 'super_admin') {
-      return group.label === 'Strategic Control (SaaS)';
+      return group.items.length > 0;
     }
-    // For other roles, keep existing logic
+    // For other roles, check if the role is allowed for the group
     return group.roles.includes(role) && group.items.length > 0;
   });
 
@@ -191,7 +191,7 @@ const Sidebar = () => {
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
-        <div className="logo-main">NexGen ERP</div>
+        <div className="logo-main">Neuraltrix ERP</div>
         <div className="logo-sub">{role.replace('_', ' ').toUpperCase()}</div>
       </div>
       

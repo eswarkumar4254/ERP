@@ -45,3 +45,27 @@ def get_available_plans(db: Session = Depends(get_db)):
         }
         for p in plans
     ]
+@router.get("/modules")
+def get_all_modules(db: Session = Depends(get_db)):
+    """List all available ERP modules with descriptions."""
+    from app.models.rbac import Module
+    modules = db.query(Module).all()
+    return [
+        {
+            "id": m.id,
+            "name": m.name,
+            "full_name": m.full_name,
+            "description": m.description
+        }
+        for m in modules
+    ]
+
+@router.get("/active-universities")
+def get_active_universities(db: Session = Depends(get_db)):
+    """List all active institutions that have an active subscription plan."""
+    from app.models.tenant import Tenant
+    tenants = db.query(Tenant).filter(Tenant.is_active == True, Tenant.subscription_plan_id != None).all()
+    return [
+        {"id": t.id, "name": t.name, "domain": t.domain}
+        for t in tenants
+    ]

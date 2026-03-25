@@ -78,7 +78,7 @@ const SignupPage = ({ onBack, onSignupSuccess }) => {
   return (
     <div className="signup-page">
       <div className="signup-sidebar">
-        <div className="signup-logo">NexGen ERP</div>
+        <div className="signup-logo">Neuraltrix ERP</div>
         <div className="signup-benefits">
             <div className="benefit-item">
                 <ShieldCheck className="benefit-icon" />
@@ -103,7 +103,7 @@ const SignupPage = ({ onBack, onSignupSuccess }) => {
             </div>
         </div>
         <div className="signup-footer">
-            &copy; 2026 Next Generation Education Tech.
+            &copy; 2026 Neuraltrix AI Tech.
         </div>
       </div>
 
@@ -180,7 +180,7 @@ const SignupPage = ({ onBack, onSignupSuccess }) => {
                             value={formData.domain}
                             onChange={handleChange}
                         />
-                        <span className="domain-suffix">.nexgen-erp.com</span>
+                        <span className="domain-suffix">.neuraltrix.com</span>
                     </div>
                 </div>
 

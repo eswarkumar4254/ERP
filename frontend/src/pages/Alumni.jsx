@@ -133,7 +133,7 @@ const AlumniPortal = () => {
             <h3>Digital Alumni ID</h3>
             <div className="glass-card" style={{ marginTop: '2rem', padding: '2rem', border: '1px solid #6366f1' }}>
                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-                  <h4 style={{ margin: 0 }}>NexGen University</h4>
+                  <h4 style={{ margin: 0 }}>Neuraltrix AI</h4>
                   <QrCode size={24} color="#6366f1" />
                </div>
                <div className="avatar-initial" style={{ width: '80px', height: '80px', margin: '0 auto' }}>A</div>

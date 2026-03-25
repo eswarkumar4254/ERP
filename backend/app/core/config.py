@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings
 from typing import List
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "NextGen Education ERP"
+    PROJECT_NAME: str = "Neuraltrix Education ERP"
     API_V1_STR: str = "/api/v1"
     SECRET_KEY: str = "your-secret-key-change-me" # Should be in .env
     ALGORITHM: str = "HS256"

@@ -5,7 +5,7 @@ from app.api.v1.endpoints import (
     hms, tms, lms, ims,
     research_rms, student_affairs_api, compliance_api, admissions_api, placements,
     parent_portal_api, department_api, saas, rbac, exam_cell, alumni, learning_analytics, finance_strategic, proctoring, compliance_strategic, knowledge_hub,
-    ai_automation
+    knowledge_hub, ai_automation, extra_features
 )
 
 api_router = APIRouter()
@@ -47,3 +47,4 @@ api_router.include_router(compliance_strategic.router, prefix="/compliance/strat
 api_router.include_router(rbac.router, prefix="/rbac", tags=["rbac"])
 api_router.include_router(knowledge_hub.router, prefix="/knowledge-hub", tags=["knowledge-hub"])
 api_router.include_router(ai_automation.router, prefix="/ai-automation", tags=["ai-automation"])
+api_router.include_router(extra_features.router, prefix="/extra", tags=["extra-features"])

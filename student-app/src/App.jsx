@@ -6,6 +6,12 @@ import Home from './pages/Home';
 import Academics from './pages/Academics';
 import Finance from './pages/Finance';
 import Settings from './pages/Settings';
+import Planner from './pages/Planner';
+import Resources from './pages/Resources';
+import Identity from './pages/Identity';
+import Attendance from './pages/Attendance';
+import Syllabus from './pages/Syllabus';
+import Support from './pages/Support';
 import './App.css';
 
 function App() {
@@ -17,6 +23,12 @@ function App() {
           <Route index element={<Home />} />
           <Route path="academics" element={<Academics />} />
           <Route path="finance" element={<Finance />} />
+          <Route path="planner" element={<Planner />} />
+          <Route path="resources" element={<Resources />} />
+          <Route path="identity" element={<Identity />} />
+          <Route path="attendance" element={<Attendance />} />
+          <Route path="syllabus" element={<Syllabus />} />
+          <Route path="support" element={<Support />} />
           <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>

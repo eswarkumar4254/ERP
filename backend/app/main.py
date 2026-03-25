@@ -37,7 +37,7 @@ from fastapi.responses import RedirectResponse
 
 @app.get("/")
 def root():
-    return {"message": "Welcome to NextGen Education ERP API"}
+    return {"message": "Welcome to Neuraltrix Education ERP API"}
 
 @app.post("/token")
 def login_redirect():

@@ -34,13 +34,13 @@ def seed_data():
 
         # 3. Create a Primary Test Institution
         print("Creating Test Institution...")
-        univ_name = "NexGen University"
+        univ_name = "Neuraltrix University"
         univ_tenant = db.query(Tenant).filter(Tenant.name == univ_name).first()
         if not univ_tenant:
             enterprise_plan = db.query(Plan).filter(Plan.name == "Enterprise").first() or plans[0]
             univ_tenant = Tenant(
                 name=univ_name,
-                domain="nexgen.edu",
+                domain="neuraltrix.edu",
                 subscription_plan_id=enterprise_plan.id,
                 is_active=True,
                 primary_color="#4f46e5"
@@ -50,12 +50,12 @@ def seed_data():
             db.refresh(univ_tenant)
 
         # 4. Create Institution Admin
-        admin_email = "admin@nexgen.edu"
+        admin_email = "admin@neuraltrix.edu"
         if not db.query(User).filter(User.email == admin_email).first():
             admin_user = User(
                 email=admin_email,
                 hashed_password=security.get_password_hash("password123"),
-                full_name="NexGen Admin",
+                full_name="Neuraltrix Admin",
                 role="institution_admin",
                 role_id=role_objs["institution_admin"].id,
                 tenant_id=univ_tenant.id
@@ -76,10 +76,10 @@ def seed_data():
             ("Thermodynamics I", "ME201", 3, "Fundamental principles of energy and heat.", "Mechanical Engineering"),
             ("Executive Leadership", "BA501", 3, "Strategic management and decision making.", "Business Admin"),
         ]
-
+ 
         faculty_records = []
         for name, eid, dept, desig in faculty_data:
-            email = f"{eid.lower()}@nexgen.edu"
+            email = f"{eid.lower()}@neuraltrix.edu"
             u = db.query(User).filter(User.email == email).first()
             if not u:
                 u = User(
@@ -135,7 +135,7 @@ def seed_data():
             ("Ethan Hunt", "STU005", "CS", "4th Year"),
         ]
         for name, sid, dept, year in student_data:
-            email = f"{sid.lower()}@nexgen.edu"
+            email = f"{sid.lower()}@neuraltrix.edu"
             if not db.query(User).filter(User.email == email).first():
                 u = User(
                     email=email,

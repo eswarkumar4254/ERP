@@ -1,0 +1,187 @@
+.identity-stage {
+    padding: 2rem 0;
+}
+
+.identity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.id-card-visual {
+    padding: 2rem;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: white;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.id-card-visual::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(var(--primary-rgb), 0.1) 0%, transparent 70%);
+}
+
+.id-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.univ-logo-s {
+    width: 32px;
+    height: 32px;
+    background: var(--primary);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+}
+
+.univ-name-s {
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+}
+
+.verified-chip {
+    margin-left: auto;
+    background: rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+    padding: 0.25rem 0.6rem;
+    border-radius: 10rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.id-card-body {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.id-portrait {
+    width: 80px;
+    height: 80px;
+    border-radius: 2rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.p-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.p-role {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.5rem;
+}
+
+.id-data-grid {
+    display: flex;
+    gap: 2rem;
+}
+
+.id-data {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.id-data .label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.id-data .value {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.id-card-qr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.qr-box {
+    background: white;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    color: #000;
+}
+
+.qr-uid {
+    font-size: 0.75rem;
+    font-weight: 800;
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.access-nexus h3 {
+    margin-bottom: 1.5rem;
+}
+
+.nexus-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.nexus-item {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nexus-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nexus-icon.blue { background: rgba(59, 130, 246, 0.1); color: #3b82f6; }
+.nexus-icon.green { background: rgba(34, 197, 94, 0.1); color: #22c55e; }
+.nexus-icon.purple { background: rgba(168, 85, 247, 0.1); color: #a855f7; }
+.nexus-icon.orange { background: rgba(249, 115, 22, 0.1); color: #f97316; }
+
+.nexus-body h4 { font-size: 1rem; margin-bottom: 0.2rem; }
+.nexus-body p { font-size: 0.8rem; color: var(--text-muted); }
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: auto;
+}
+
+.status-dot.online { background: #22c55e; box-shadow: 0 0 10px #22c55e; }

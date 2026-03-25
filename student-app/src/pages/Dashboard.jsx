@@ -64,6 +64,21 @@ const Dashboard = () => {
               <span>Academic Records</span>
               <ChevronRight className="arrow" size={14} />
             </NavLink>
+            <NavLink to="/syllabus" className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}>
+              <BookOpen size={20} />
+              <span>Syllabus Tracker</span>
+              <ChevronRight className="arrow" size={14} />
+            </NavLink>
+            <NavLink to="/planner" className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}>
+              <LayoutDashboard size={20} />
+              <span>AI Study Planner</span>
+              <ChevronRight className="arrow" size={14} />
+            </NavLink>
+            <NavLink to="/attendance" className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}>
+              <Bell size={20} />
+              <span>Attendance Registry</span>
+              <ChevronRight className="arrow" size={14} />
+            </NavLink>
             <NavLink to="/finance" className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}>
               <Wallet size={20} />
               <span>Financial Center</span>
@@ -72,7 +87,23 @@ const Dashboard = () => {
           </div>
 
           <div className="nav-group">
+            <span className="group-label">Tools & Support</span>
+            <NavLink to="/resources" className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}>
+              <Search size={20} />
+              <span>Knowledge Repo</span>
+            </NavLink>
+            <NavLink to="/support" className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}>
+              <User size={20} />
+              <span>Support Desk</span>
+            </NavLink>
+          </div>
+
+          <div className="nav-group">
             <span className="group-label">Account Services</span>
+            <NavLink to="/identity" className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}>
+              <User size={20} />
+              <span>Digital Multi-pass</span>
+            </NavLink>
             <NavLink to="/settings" className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}>
               <Settings size={20} />
               <span>Identity Settings</span>
@@ -130,6 +161,7 @@ const Dashboard = () => {
         <NavLink to="/academics" className="btn-mobile"><BookOpen size={22} /></NavLink>
         <NavLink to="/finance" className="btn-mobile"><Wallet size={22} /></NavLink>
         <NavLink to="/settings" className="btn-mobile"><Settings size={22} /></NavLink>
+        <button className="btn-mobile" onClick={handleLogout} style={{ border: 'none', background: 'none' }}><LogOut size={22} /></button>
       </nav>
     </div>
   );

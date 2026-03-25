@@ -1,30 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { 
   Award, ClipboardList, Building, Boxes, 
   Sparkles, BookOpen, Truck, Wallet,
   Library, Presentation, LayoutDashboard, Calendar, FileText,
-  Quote
+  Quote, Globe, ChevronRight, CheckCircle2, Bed, GraduationCap, Users
 } from 'lucide-react';
 import './LandingPage.css';
 
+const IconMap = {
+  'LMS': BookOpen,
+  'HMS': Bed,
+  'TMS': Truck,
+  'FMS': Wallet,
+  'SMS': GraduationCap,
+  'RMS': Sparkles,
+  'IMS': Boxes,
+  'CRM': Users
+};
+
 const LandingPage = ({ onNavigateToLogin, onNavigateToSignup }) => {
   const [showPremiumModal, setShowPremiumModal] = useState(false);
+  const [modules, setModules] = useState([]);
+  const [universities, setUniversities] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const features = [
-    { name: 'Academic Records', icon: FileText, desc: 'Centralized management of transcripts, attendance logs, and examination grading protocols.' },
-    { name: 'Admissions Pipeline', icon: ClipboardList, desc: 'Streamlined prospect tracking, online applications, and final enrollment processing.' },
-    { name: 'Faculty Management', icon: Presentation, desc: 'Automated staff scheduling, workload distribution, and leave tracking systems.' },
-    { name: 'Campus Infrastructure', icon: Building, desc: 'Comprehensive facilities management, room booking, and asset maintenance logs.' },
-    { name: 'Financial Administration', icon: Wallet, desc: 'Secure student billing, departmental ledgers, and institutional accounting workflows.' },
-    { name: 'Library Sciences', icon: Library, desc: 'Physical and digital collection cataloging, circulation, and reserve management.' }
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [modRes, uniRes] = await Promise.all([
+          axios.get('http://localhost:8000/api/v1/onboarding/modules'),
+          axios.get('http://localhost:8000/api/v1/onboarding/active-universities')
+        ]);
+        setModules(modRes.data);
+        setUniversities(uniRes.data);
+      } catch (err) {
+        console.error("Failed to fetch dynamic data", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="landing-container">
       {/* Header */}
       <header className="landing-header shadow-sm">
         <div className="landing-logo">
-          NexGen University
+          Neuraltrix AI
         </div>
         <nav className="landing-nav">
           <button onClick={onNavigateToLogin}>
@@ -52,6 +76,26 @@ const LandingPage = ({ onNavigateToLogin, onNavigateToSignup }) => {
         </div>
       </section>
 
+      {/* Dynamic Universities Ticker/Grid */}
+      <section className="institutions-section animate-fade-in">
+         <div className="section-head">
+            <h2 className="section-title" style={{ fontSize: '1.5rem' }}>Powering Leading Institutions</h2>
+            <p className="section-subtitle">Only showing universities with active Neuraltrix subscriptions.</p>
+         </div>
+         <div className="uni-grid">
+            {universities.map(uni => (
+               <div key={uni.id} className="uni-pill" onClick={onNavigateToLogin}>
+                  <Globe size={16} />
+                  <span>{uni.name}</span>
+                  <ChevronRight size={14} className="chevron" />
+               </div>
+            ))}
+            {universities.length === 0 && !loading && (
+               <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>No active institutions provisioned yet.</p>
+            )}
+         </div>
+      </section>
+
       {/* Statistics Bar */}
       <div className="stats-bar">
         <div className="stat-item">
@@ -63,8 +107,8 @@ const LandingPage = ({ onNavigateToLogin, onNavigateToSignup }) => {
           <div className="stat-label">Military Grade Encryption</div>
         </div>
         <div className="stat-item">
-          <div className="stat-number">150k+</div>
-          <div className="stat-label">Student Records Managed</div>
+          <div className="stat-number">{universities.length * 50}+</div>
+          <div className="stat-label">Institutional Nodes Active</div>
         </div>
       </div>
 
@@ -72,14 +116,14 @@ const LandingPage = ({ onNavigateToLogin, onNavigateToSignup }) => {
       <section className="details-section">
         <div className="details-image-container">
           <div className="details-image">
-            <img src="/dashboard_mockup.png" alt="NexGen Command Center Dashboard Mockup" />
+            <img src="/dashboard_mockup.png" alt="Neuraltrix Command Center Dashboard Mockup" />
           </div>
         </div>
         <div className="details-content">
           <div className="details-subtitle">System Overview</div>
           <h2 className="details-title">Unified. Secure. Scalable.</h2>
           <p className="details-text">
-            Replace fragmented software systems with a single, cohesive architecture. NexGen provides administrators with unparalleled visibility and control over every facet of university life, built on a foundation of rigorous data security.
+            Replace fragmented software systems with a single, cohesive architecture. Neuraltrix provides administrators with unparalleled visibility and control over every facet of university life, built on a foundation of rigorous data security.
           </p>
           <ul className="details-list">
             <li><LayoutDashboard size={22} strokeWidth={1.5} /> Centralized administrative dashboards</li>
@@ -95,39 +139,42 @@ const LandingPage = ({ onNavigateToLogin, onNavigateToSignup }) => {
         <div className="quote-content">
           <Quote size={48} className="quote-icon" strokeWidth={1} />
           <p className="quote-text">
-            "NexGen has fundamentally transformed how we govern our institution. The clarity it brings to our administrative overhead is simply unprecedented."
+            "Neuraltrix has fundamentally transformed how we govern our institution. The clarity it brings to our administrative overhead is simply unprecedented."
           </p>
           <div className="quote-author">Dr. Eleanor Vance &mdash; Provost, Global Institute of Technology</div>
         </div>
       </section>
 
-      {/* Modules Grid */}
+      {/* Modules Grid (Dynamic) */}
       <section className="modules-section">
         <div className="section-head">
-          <h2 className="section-title">Core Modules</h2>
-          <p className="section-subtitle">Comprehensive solutions engineered for modern educational administration.</p>
+          <h2 className="section-title">Institutional Modules</h2>
+          <p className="section-subtitle">Real-time components provisioned from the Neuraltrix Core.</p>
         </div>
         
         <div className="modules-grid">
-          {features.map((f, i) => {
-            const Icon = f.icon;
+          {modules.map((m) => {
+            const Icon = IconMap[m.name] || FileText;
             return (
               <div 
-                key={i} 
+                key={m.id} 
                 className="module-card"
                 onClick={() => setShowPremiumModal(true)}
               >
                 <div className="module-icon">
                   <Icon size={28} strokeWidth={1.5} />
                 </div>
-                <h3 className="module-title">{f.name}</h3>
-                <p className="module-desc">{f.desc}</p>
+                <h3 className="module-title">{m.full_name}</h3>
+                <p className="module-desc">{m.description}</p>
                 <div className="module-link">
-                  View Module &rarr;
+                  Request Activation &rarr;
                 </div>
               </div>
             );
           })}
+          {modules.length === 0 && !loading && (
+             <p style={{ textAlign: 'center', gridColumn: '1/-1', color: 'var(--text-muted)' }}>No modules found in the ecosystem.</p>
+          )}
         </div>
       </section>
 
@@ -162,7 +209,7 @@ const LandingPage = ({ onNavigateToLogin, onNavigateToSignup }) => {
       <footer className="landing-footer">
         <div className="footer-top">
           <div className="footer-brand">
-            NexGen ERP
+            Neuraltrix ERP
           </div>
           <div className="footer-nav">
             <a href="#about">About</a>
@@ -172,7 +219,7 @@ const LandingPage = ({ onNavigateToLogin, onNavigateToSignup }) => {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>&copy; {new Date().getFullYear()} Next Generation Education Technologies.</span>
+          <span>&copy; {new Date().getFullYear()} Neuraltrix AI Technologies.</span>
           <span>Terms of Service &middot; Privacy Policy</span>
         </div>
       </footer>

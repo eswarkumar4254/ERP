@@ -1,16 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Mail, Lock, LogIn, ShieldAlert, ArrowLeft, CheckCircle, Globe, Award } from 'lucide-react';
+import { Mail, Lock, LogIn, ShieldAlert, ArrowLeft, CheckCircle, Globe, Award, ChevronRight, Building } from 'lucide-react';
 import './Login.css';
 
 const Login = ({ onLoginSuccess, onBack }) => {
-  const [email, setEmail] = useState('super_admin@test.edu');
+  const [step, setStep] = useState(1); // 1: Select Uni, 2: Auth
+  const [universities, setUniversities] = useState([]);
+  const [selectedUni, setSelectedUni] = useState(null);
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('password123');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   // Using relative path for better browser compatibility
   const SHOWCASE_IMAGE = '/login_showcase.png';
+
+  useEffect(() => {
+    const fetchUnis = async () => {
+      try {
+        const res = await axios.get('http://localhost:8000/api/v1/onboarding/active-universities');
+        setUniversities(res.data);
+      } catch (err) {
+        console.error("Failed to load institutions", err);
+      }
+    };
+    fetchUnis();
+  }, []);
+
+  const handleUniSelect = (uni) => {
+    setSelectedUni(uni);
+    setEmail(`admin@${uni.domain}`);
+    setStep(2);
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -51,7 +72,7 @@ const Login = ({ onLoginSuccess, onBack }) => {
               <div className="brand-logo-icon">
                  <Globe color="white" size={28} />
               </div>
-              <h3 className="brand-logo-text">NexGen Academic OS</h3>
+              <h3 className="brand-logo-text">Neuraltrix Academic OS</h3>
            </div>
            
            <h1 className="brand-headline">Architecting <br/><span style={{ color: '#60a5fa' }}>Institutional Excellence</span></h1>
@@ -79,69 +100,101 @@ const Login = ({ onLoginSuccess, onBack }) => {
       {/* 🔐 High-Fidelity Auth Panel (Right) */}
       <main className="auth-panel">
         <div className="auth-container">
-          <header className="auth-header">
-            <h2>Authorized Access</h2>
-            <p>Welcome back. Secure credentials required.</p>
-          </header>
-
-          {error && (
-            <div className="auth-error">
-              <ShieldAlert size={18} />
-              <span>{error}</span>
-            </div>
-          )}
-
-          <form onSubmit={handleLogin} className="login-form">
-            <div className="input-container">
-              <label>Authentication Email</label>
-              <div className="input-field-wrap">
-                <input
-                  type="email"
-                  className="input-field"
-                  value={email}
-                  placeholder="name@university.edu"
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <Mail className="input-icon" size={20} />
+          {step === 1 ? (
+            <div className="uni-selection-step animate-fade-in">
+              <header className="auth-header">
+                <h2>Select Institution</h2>
+                <p>Choose your university node to begin authentication.</p>
+              </header>
+              <div className="uni-selector-list">
+                {universities.map(uni => (
+                  <div key={uni.id} className="uni-item" onClick={() => handleUniSelect(uni)}>
+                    <div className="uni-icon"><Building size={20} /></div>
+                    <div className="uni-info">
+                      <span className="uni-name">{uni.name}</span>
+                      <span className="uni-domain">{uni.domain}</span>
+                    </div>
+                    <ChevronRight size={18} className="chevron" />
+                  </div>
+                ))}
+                {universities.length === 0 && (
+                  <p style={{ textAlign: 'center', color: 'var(--text-muted)', padding: '2rem' }}>No active institutions available.</p>
+                )}
               </div>
-            </div>
-
-            <div className="input-container">
-              <label>Access Key</label>
-              <div className="input-field-wrap">
-                <input
-                  type="password"
-                  className="input-field"
-                  value={password}
-                  placeholder="Institutional Security Code"
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-                <Lock className="input-icon" size={20} />
-              </div>
-            </div>
-
-            <button type="submit" className="btn-login" disabled={loading}>
-              {loading ? (
-                <>Authenticating Identity...</>
-              ) : (
-                <>
-                  Verify Credentials <LogIn size={18} />
-                </>
-              )}
-            </button>
-
-            {onBack && (
               <button 
                 type="button" 
                 className="btn-back" 
                 onClick={onBack}
+                style={{ marginTop: '2rem' }}
               >
-                <ArrowLeft size={16} /> Back to Identity Selection
+                <ArrowLeft size={16} /> Back to Landing
               </button>
-            )}
-          </form>
+            </div>
+          ) : (
+            <div className="auth-form-step animate-fade-in">
+              <header className="auth-header">
+                <h2>Authorized Access</h2>
+                <p>Identity verification for <strong>{selectedUni.name}</strong></p>
+              </header>
+
+              {error && (
+                <div className="auth-error">
+                  <ShieldAlert size={18} />
+                  <span>{error}</span>
+                </div>
+              )}
+
+              <form onSubmit={handleLogin} className="login-form">
+                <div className="input-container">
+                  <label>Authentication Email</label>
+                  <div className="input-field-wrap">
+                    <input
+                      type="email"
+                      className="input-field"
+                      value={email}
+                      placeholder="name@university.edu"
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                    <Mail className="input-icon" size={20} />
+                  </div>
+                </div>
+
+                <div className="input-container">
+                  <label>Access Key</label>
+                  <div className="input-field-wrap">
+                    <input
+                      type="password"
+                      className="input-field"
+                      value={password}
+                      placeholder="Institutional Security Code"
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                    />
+                    <Lock className="input-icon" size={20} />
+                  </div>
+                </div>
+
+                <button type="submit" className="btn-login" disabled={loading}>
+                  {loading ? (
+                    <>Authenticating Identity...</>
+                  ) : (
+                    <>
+                      Verify Credentials <LogIn size={18} />
+                    </>
+                  )}
+                </button>
+
+                <button 
+                  type="button" 
+                  className="btn-back" 
+                  onClick={() => setStep(1)}
+                >
+                  <ArrowLeft size={16} /> Back to Institution Selection
+                </button>
+              </form>
+            </div>
+          )}
         </div>
       </main>
     </div>
